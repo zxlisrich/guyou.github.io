@@ -16,19 +16,28 @@
   <meta name="author" content="顾友">
   <meta name="keywords" content="">
   
-    <meta property="og:type" content="article">
-<meta property="og:title" content="测试文章">
-<meta property="og:url" content="https://zxlisrich.github.io/zxlisrich.github.io/2023/07/19/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/index.html">
+    <meta name="description" content="决策树 根节点和决策节点都是代表特征，决策   entropy (熵) 如何选择特征会使熵最小  使用加权平均熵 选择平均熵最小的分配方式 使用划分之前的熵减去划分之后的熵 得到结果与上述一致,但是可以看出谁纯度提升大 这个差值成为信息增益   为啥要使用加权平均熵计算来着??? 应该只是为了综合两边的熵一起对比吧  选择信息增益最大的特征进行划分,划分结束依据  当一个节点占比100% 划分的深">
+<meta property="og:type" content="article">
+<meta property="og:title" content="吴恩达机器学习week4">
+<meta property="og:url" content="https://zxlisrich.github.io/zxlisrich.github.io/2023/07/23/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0week/index.html">
 <meta property="og:site_name" content="hi~ 仔细看看？">
+<meta property="og:description" content="决策树 根节点和决策节点都是代表特征，决策   entropy (熵) 如何选择特征会使熵最小  使用加权平均熵 选择平均熵最小的分配方式 使用划分之前的熵减去划分之后的熵 得到结果与上述一致,但是可以看出谁纯度提升大 这个差值成为信息增益   为啥要使用加权平均熵计算来着??? 应该只是为了综合两边的熵一起对比吧  选择信息增益最大的特征进行划分,划分结束依据  当一个节点占比100% 划分的深">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-07-19T14:48:16.000Z">
-<meta property="article:modified_time" content="2023-07-19T14:48:16.777Z">
+<meta property="og:image" content="https://zxlisrich.github.io/img/mL_learning/2023-07-25-22-14-15.png">
+<meta property="og:image" content="https://zxlisrich.github.io/img/mL_learning/2023-07-25-22-24-42.png">
+<meta property="og:image" content="https://zxlisrich.github.io/img/mL_learning/2023-07-25-22-54-35.png">
+<meta property="article:published_time" content="2023-07-22T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-07-25T15:17:00.123Z">
 <meta property="article:author" content="顾友">
+<meta property="article:tag" content="决策树">
+<meta property="article:tag" content="信息熵">
+<meta property="article:tag" content="信息增益">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://zxlisrich.github.io/img/mL_learning/2023-07-25-22-14-15.png">
   
   
   
-  <title>测试文章 - hi~ 仔细看看？</title>
+  <title>吴恩达机器学习week4 - hi~ 仔细看看？</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -225,7 +234,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="测试文章"></span>
+            <span id="subtitle" data-typed-text="吴恩达机器学习week4"></span>
           
         </div>
 
@@ -236,8 +245,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-07-19 22:48" pubdate>
-          2023年7月19日 晚上
+        <time datetime="2023-07-23 00:00" pubdate>
+          2023年7月23日 凌晨
         </time>
       </span>
     
@@ -248,7 +257,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          0 字
+          345 字
         
       </span>
     
@@ -259,7 +268,7 @@
         
         
         
-          1 分钟
+          3 分钟
         
       </span>
     
@@ -304,12 +313,36 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">测试文章</h1>
+            <h1 id="seo-header">吴恩达机器学习week4</h1>
             
             
               <div class="markdown-body">
                 
-                
+                <h4 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a>决策树</h4><blockquote>
+<p>根节点和决策节点都是代表特征，<br>决策 </p>
+</blockquote>
+<h4 id="entropy-熵"><a href="#entropy-熵" class="headerlink" title="entropy (熵)"></a>entropy (熵)</h4><blockquote>
+<p>如何选择特征会使熵最小</p>
+<ul>
+<li>使用加权平均熵 选择平均熵最小的分配方式<br><img src="/img/mL_learning/2023-07-25-22-14-15.png" srcset="/img/loading.gif" lazyload></li>
+<li>使用划分之前的熵减去划分之后的熵 得到结果与上述一致,但是可以看出谁纯度提升大 这个差值成为信息增益<br><img src="/img/mL_learning/2023-07-25-22-24-42.png" srcset="/img/loading.gif" lazyload alt="信息增益的计算"></li>
+</ul>
+</blockquote>
+<p>为啥要使用加权平均熵计算来着??? 应该只是为了综合两边的熵一起对比吧</p>
+<blockquote>
+<p>选择信息增益最大的特征进行划分,划分结束依据</p>
+<ul>
+<li>当一个节点占比100%</li>
+<li>划分的深度达到最大(深度如何确定)</li>
+<li>信息增益的增加幅度达到了阈值(再划分容易过拟合) (阈值如何确定)</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>当特征有两个以上的离散值(比如毛色有白色,褐色,三花)<br>one-hot ???<br><img src="/img/mL_learning/2023-07-25-22-54-35.png" srcset="/img/loading.gif" lazyload></p>
+</blockquote>
+<p>可以理解成基于范围去做二分类问题（sigmoid），计算的损失函数就是上下节点的 熵差，求maximize（熵差(x)），然后得到0和1，用于one-hot</p>
+<p>回归树???? </p>
+
                 
               </div>
             
@@ -317,6 +350,17 @@
             <div>
               <div class="post-metas my-3">
   
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%86%B3%E7%AD%96%E6%A0%91/" class="print-no-link">#决策树</a>
+      
+        <a href="/tags/%E4%BF%A1%E6%81%AF%E7%86%B5/" class="print-no-link">#信息熵</a>
+      
+        <a href="/tags/%E4%BF%A1%E6%81%AF%E5%A2%9E%E7%9B%8A/" class="print-no-link">#信息增益</a>
+      
+    </div>
   
 </div>
 
@@ -326,8 +370,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>测试文章</div>
-      <div>https://zxlisrich.github.io/zxlisrich.github.io/2023/07/19/测试文章/</div>
+      <div>吴恩达机器学习week4</div>
+      <div>https://zxlisrich.github.io/zxlisrich.github.io/2023/07/23/吴恩达机器学习week/</div>
     </div>
     <div class="license-meta">
       
@@ -339,7 +383,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年7月19日</div>
+          <div>2023年7月23日</div>
         </div>
       
       
@@ -371,9 +415,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/07/23/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0week/" title="吴恩达机器学习week4">
+                      <a href="/2023/07/23/moon-and-earth/" title="月球绕地球旋转scss实现">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">吴恩达机器学习week4</span>
+                        <span class="hidden-mobile">月球绕地球旋转scss实现</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -381,8 +425,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/07/19/hello-world/" title="Hello World">
-                        <span class="hidden-mobile">Hello World</span>
+                      <a href="/2023/07/19/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/" title="测试文章">
+                        <span class="hidden-mobile">测试文章</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

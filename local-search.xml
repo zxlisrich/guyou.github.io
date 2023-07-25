@@ -27,6 +27,29 @@
   
   
   <entry>
+    <title>吴恩达机器学习week4</title>
+    <link href="/2023/07/23/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0week/"/>
+    <url>/2023/07/23/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0week/</url>
+    
+    <content type="html"><![CDATA[<h4 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a>决策树</h4><blockquote><p>根节点和决策节点都是代表特征，<br>决策 </p></blockquote><h4 id="entropy-熵"><a href="#entropy-熵" class="headerlink" title="entropy (熵)"></a>entropy (熵)</h4><blockquote><p>如何选择特征会使熵最小</p><ul><li>使用加权平均熵 选择平均熵最小的分配方式<br><img src="/img/mL_learning/2023-07-25-22-14-15.png"></li><li>使用划分之前的熵减去划分之后的熵 得到结果与上述一致,但是可以看出谁纯度提升大 这个差值成为信息增益<br><img src="/img/mL_learning/2023-07-25-22-24-42.png" alt="信息增益的计算"></li></ul></blockquote><p>为啥要使用加权平均熵计算来着??? 应该只是为了综合两边的熵一起对比吧</p><blockquote><p>选择信息增益最大的特征进行划分,划分结束依据</p><ul><li>当一个节点占比100%</li><li>划分的深度达到最大(深度如何确定)</li><li>信息增益的增加幅度达到了阈值(再划分容易过拟合) (阈值如何确定)</li></ul></blockquote><blockquote><p>当特征有两个以上的离散值(比如毛色有白色,褐色,三花)<br>one-hot ???<br><img src="/img/mL_learning/2023-07-25-22-54-35.png"></p></blockquote><p>可以理解成基于范围去做二分类问题（sigmoid），计算的损失函数就是上下节点的 熵差，求maximize（熵差(x)），然后得到0和1，用于one-hot</p><p>回归树???? </p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>决策树</tag>
+      
+      <tag>信息熵</tag>
+      
+      <tag>信息增益</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>测试文章</title>
     <link href="/2023/07/19/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/"/>
     <url>/2023/07/19/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/</url>
