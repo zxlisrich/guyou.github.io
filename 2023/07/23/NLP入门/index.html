@@ -16,45 +16,38 @@
   <meta name="author" content="顾友">
   <meta name="keywords" content="">
   
-    <meta name="description" content="决策树 根节点和决策节点都是代表特征，决策   entropy (熵) 如何选择特征会使熵最小  使用加权平均熵 选择平均熵最小的分配方式 使用划分之前的熵减去划分之后的熵 得到结果与上述一致,但是可以看出谁纯度提升大 这个差值成为信息增益   为啥要使用加权平均熵计算来着??? 应该只是为了综合两边的熵一起对比吧  选择信息增益最大的特征进行划分,划分结束依据  当一个节点占比100% 划分的深">
+    <meta name="description" content="RNN的出现  传统的神经网络都是一个X对应一个Y,输入和输出一一对应,不同的输入之间没有关系.但是对于序列来说(文字序列,音频序列)一个个输入之间不是孤立的,而是有相对应关系的,因此引入RNN RNN的公式统一定义为$h_t &#x3D; f(x_t, h_{t-1}; \theta)$其中$h_t$的每一步计算都是由其当前的输入$x_t$和上一步的输入$h_{t-1}$决定的,$\theta$">
 <meta property="og:type" content="article">
-<meta property="og:title" content="吴恩达机器学习week4">
-<meta property="og:url" content="https://zxlisrich.github.io/zxlisrich.github.io/2023/07/23/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0week/index.html">
+<meta property="og:title" content="吴恩达深度学习NLP入门">
+<meta property="og:url" content="https://zxlisrich.github.io/zxlisrich.github.io/2023/07/23/NLP%E5%85%A5%E9%97%A8/index.html">
 <meta property="og:site_name" content="hi~ 仔细看看？">
-<meta property="og:description" content="决策树 根节点和决策节点都是代表特征，决策   entropy (熵) 如何选择特征会使熵最小  使用加权平均熵 选择平均熵最小的分配方式 使用划分之前的熵减去划分之后的熵 得到结果与上述一致,但是可以看出谁纯度提升大 这个差值成为信息增益   为啥要使用加权平均熵计算来着??? 应该只是为了综合两边的熵一起对比吧  选择信息增益最大的特征进行划分,划分结束依据  当一个节点占比100% 划分的深">
+<meta property="og:description" content="RNN的出现  传统的神经网络都是一个X对应一个Y,输入和输出一一对应,不同的输入之间没有关系.但是对于序列来说(文字序列,音频序列)一个个输入之间不是孤立的,而是有相对应关系的,因此引入RNN RNN的公式统一定义为$h_t &#x3D; f(x_t, h_{t-1}; \theta)$其中$h_t$的每一步计算都是由其当前的输入$x_t$和上一步的输入$h_{t-1}$决定的,$\theta$">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://zxlisrich.github.io/img/mL_learning/2023-07-25-22-14-15.png">
-<meta property="og:image" content="https://zxlisrich.github.io/img/mL_learning/2023-07-25-22-24-42.png">
-<meta property="og:image" content="https://zxlisrich.github.io/img/mL_learning/2023-07-25-22-54-35.png">
-<meta property="og:image" content="https://zxlisrich.github.io/img/mL_learning/2023-07-26-23-35-39.png">
-<meta property="og:image" content="https://zxlisrich.github.io/img/mL_learning/2023-07-27-22-51-29.png">
-<meta property="og:image" content="https://zxlisrich.github.io/img/mL_learning/2023-07-27-23-09-08.png">
-<meta property="og:image" content="https://zxlisrich.github.io/img/mL_learning/2023-07-27-23-27-00.png">
-<meta property="og:image" content="https://zxlisrich.github.io/img/mL_learning/2023-07-27-23-33-09.png">
-<meta property="og:image" content="https://zxlisrich.github.io/img/mL_learning/2023-07-27-23-37-32.png">
-<meta property="og:image" content="https://zxlisrich.github.io/img/mL_learning/2023-07-29-10-16-16.png">
-<meta property="og:image" content="https://zxlisrich.github.io/img/mL_learning/2023-07-29-10-36-57.png">
-<meta property="og:image" content="https://zxlisrich.github.io/img/mL_learning/2023-07-29-10-54-52.png">
-<meta property="og:image" content="https://zxlisrich.github.io/img/mL_learning/2023-07-29-11-31-39.png">
-<meta property="og:image" content="https://zxlisrich.github.io/img/mL_learning/2023-07-29-11-52-26.png">
-<meta property="og:image" content="https://zxlisrich.github.io/img/mL_learning/2023-07-29-11-54-33.png">
-<meta property="og:image" content="https://zxlisrich.github.io/img/mL_learning/2023-07-29-12-01-46.png">
-<meta property="og:image" content="https://zxlisrich.github.io/img/mL_learning/2023-07-29-12-20-45.png">
-<meta property="og:image" content="https://zxlisrich.github.io/img/mL_learning/2023-07-29-12-24-26.png">
-<meta property="og:image" content="https://zxlisrich.github.io/img/mL_learning/2023-07-29-12-30-20.png">
+<meta property="og:image" content="https://zxlisrich.github.io/img/mL_learning/2023-08-29-21-34-52.png">
+<meta property="og:image" content="https://zxlisrich.github.io/img/mL_learning/2023-08-29-22-01-17.png">
+<meta property="og:image" content="https://zxlisrich.github.io/img/mL_learning/2023-08-29-21-57-41.png">
+<meta property="og:image" content="https://zxlisrich.github.io/img/mL_learning/2023-08-29-22-08-13.png">
+<meta property="og:image" content="https://zxlisrich.github.io/img/mL_learning/2023-08-29-22-16-35.png">
+<meta property="og:image" content="https://zxlisrich.github.io/img/mL_learning/2023-08-29-22-26-56.png">
+<meta property="og:image" content="https://zxlisrich.github.io/img/mL_learning/2023-08-30-09-13-13.png">
+<meta property="og:image" content="https://zxlisrich.github.io/img/mL_learning/2023-08-30-09-52-31.png">
+<meta property="og:image" content="https://zxlisrich.github.io/img/mL_learning/2023-08-31-16-22-23.png">
+<meta property="og:image" content="https://zxlisrich.github.io/img/mL_learning/2023-08-31-16-57-41.png">
+<meta property="og:image" content="https://zxlisrich.github.io/img/mL_learning/2023-08-31-17-41-18.png">
+<meta property="og:image" content="https://zxlisrich.github.io/img/mL_learning/2023-09-01-12-28-37.png">
+<meta property="og:image" content="https://zxlisrich.github.io/img/mL_learning/2023-09-01-15-45-14.png">
+<meta property="og:image" content="https://zxlisrich.github.io/img/mL_learning/2023-09-01-16-24-09.png">
 <meta property="article:published_time" content="2023-07-22T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-08-24T14:28:43.185Z">
+<meta property="article:modified_time" content="2023-09-07T03:26:19.895Z">
 <meta property="article:author" content="顾友">
-<meta property="article:tag" content="决策树">
-<meta property="article:tag" content="信息熵">
-<meta property="article:tag" content="信息增益">
-<meta property="article:tag" content="推荐系统">
+<meta property="article:tag" content="RNN">
+<meta property="article:tag" content="NLP">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://zxlisrich.github.io/img/mL_learning/2023-07-25-22-14-15.png">
+<meta name="twitter:image" content="https://zxlisrich.github.io/img/mL_learning/2023-08-29-21-34-52.png">
   
   
   
-  <title>吴恩达机器学习week4 - hi~ 仔细看看？</title>
+  <title>吴恩达深度学习NLP入门 - hi~ 仔细看看？</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -251,7 +244,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="吴恩达机器学习week4"></span>
+            <span id="subtitle" data-typed-text="吴恩达深度学习NLP入门"></span>
           
         </div>
 
@@ -274,7 +267,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.5k 字
+          2.3k 字
         
       </span>
     
@@ -285,7 +278,7 @@
         
         
         
-          13 分钟
+          19 分钟
         
       </span>
     
@@ -330,99 +323,37 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">吴恩达机器学习week4</h1>
+            <h1 id="seo-header">吴恩达深度学习NLP入门</h1>
             
             
               <div class="markdown-body">
                 
-                <h4 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a>决策树</h4><blockquote>
-<p>根节点和决策节点都是代表特征，<br>决策 </p>
-</blockquote>
-<h4 id="entropy-熵"><a href="#entropy-熵" class="headerlink" title="entropy (熵)"></a>entropy (熵)</h4><blockquote>
-<p>如何选择特征会使熵最小</p>
-<ul>
-<li>使用加权平均熵 选择平均熵最小的分配方式<br><img src="/img/mL_learning/2023-07-25-22-14-15.png" srcset="/img/loading.gif" lazyload></li>
-<li>使用划分之前的熵减去划分之后的熵 得到结果与上述一致,但是可以看出谁纯度提升大 这个差值成为信息增益<br><img src="/img/mL_learning/2023-07-25-22-24-42.png" srcset="/img/loading.gif" lazyload alt="信息增益的计算"></li>
-</ul>
-</blockquote>
-<p>为啥要使用加权平均熵计算来着??? 应该只是为了综合两边的熵一起对比吧</p>
-<blockquote>
-<p>选择信息增益最大的特征进行划分,划分结束依据</p>
-<ul>
-<li>当一个节点占比100%</li>
-<li>划分的深度达到最大(深度如何确定)</li>
-<li>信息增益的增加幅度达到了阈值(再划分容易过拟合) (阈值如何确定)</li>
-</ul>
-</blockquote>
-<blockquote>
-<p>当特征有两个以上的离散值(比如毛色有白色,褐色,三花)<br>one-hot ???<br><img src="/img/mL_learning/2023-07-25-22-54-35.png" srcset="/img/loading.gif" lazyload></p>
-</blockquote>
-<p>可以理解成基于范围去做二分类问题（sigmoid），计算的损失函数就是上下节点的 熵差，求maximize（熵差(x)），然后得到0和1，用于one-hot</p>
-<p>回归树???? </p>
-<p>通过建立多个决策树来保证决策树算法的健壮性<br>然而如何建立略有不同的多棵决策树呢？<br>即有放回抽样<br>随机森林算法<br>XGBoost </p>
-<p>决策树算法</p>
-<ul>
-<li>tabular（structured) data</li>
-<li>不推荐在非结构化数据（图标，音频等）上面使用决策树算法<br>对比神经网络</li>
-<li>适用于所有类型的数据</li>
-<li>但是可能慢于决策树算法</li>
-<li>可以使用迁移学习</li>
-<li>更加容易构建多模型系统</li>
-</ul>
-<h4 id="无监督学习"><a href="#无监督学习" class="headerlink" title="无监督学习"></a>无监督学习</h4><ul>
-<li>(clustering)聚类<ul>
-<li>grouping similar news </li>
-<li>DNA analysis</li>
-<li>Astronomical data analysis</li>
-</ul>
-</li>
-<li>K-means算法<ul>
-<li>随机初始化K个聚类中心</li>
-<li>loop <ul>
-<li>计算每个点到不同聚类中心的距离,将其分配到距离最短的聚类中心</li>
-<li>全部分配完成后根据各个聚类计算平均聚类中心</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>优化算法(cost function &#x3D;&#x3D; distortion function)<br><img src="/img/mL_learning/2023-07-26-23-35-39.png" srcset="/img/loading.gif" lazyload></li>
-<li>如何决定找几个集合</li>
-</ul>
-<p><img src="/img/mL_learning/2023-07-27-22-51-29.png" srcset="/img/loading.gif" lazyload><br>相当于用无标注的训练集训练出一个特定均值和方差的正态分布，并默认两端的极值是不正常的。再通过测试集来调整阈值，使得阈值之上的都是正常的，阈值之外的都是不正常的。</p>
-<p>在异常检测算法中选择合适的特征<br>在一些特征的概率分布不是高斯分布时 可以尝试使用变换手段使其变换为高斯分布<br><img src="/img/mL_learning/2023-07-27-23-09-08.png" srcset="/img/loading.gif" lazyload></p>
-<p>推荐系统<br><img src="/img/mL_learning/2023-07-27-23-27-00.png" srcset="/img/loading.gif" lazyload></p>
-<p>预测Alice对其他电影的评分的方式（类似线性回归）<br><img src="/img/mL_learning/2023-07-27-23-33-09.png" srcset="/img/loading.gif" lazyload><br>cost function 也一样（但是只算上实际评分的个数）<br><img src="/img/mL_learning/2023-07-27-23-37-32.png" srcset="/img/loading.gif" lazyload></p>
-<p>如何得出X1 和 X2 这类特征</p>
-<p>太怪了，这里假设参数 w和b 求特征X，但是这里又把w, b, X整合到一个公式里面<br><img src="/img/mL_learning/2023-07-29-10-16-16.png" srcset="/img/loading.gif" lazyload></p>
-<p>意思是使用三个变量同时做梯度下降,然后使上面第三个式子最小<br><img src="/img/mL_learning/2023-07-29-10-36-57.png" srcset="/img/loading.gif" lazyload></p>
-<p>将标签简化(用户并不都是给予五星好评的,他们通常只是通过某种途径让你感觉她喜欢或者不喜欢这个电影)</p>
-<ul>
-<li>用户看过电影并评价了标为1 </li>
-<li>知道,可能看过,可能不喜欢没有给予评分标为0</li>
-<li>没看过标为?<br>将上面的线性回归转为分类的逻辑回归流程如下<br><img src="/img/mL_learning/2023-07-29-10-54-52.png" srcset="/img/loading.gif" lazyload></li>
-</ul>
-<p>(已经回到线性回归了)<br>当存在没怎么看过电影的用户,使用均值归一化可以达到加快协同过滤算法运算的效果<br><img src="/img/mL_learning/2023-07-29-11-31-39.png" srcset="/img/loading.gif" lazyload></p>
-<p>相关特征<br>(解释的例子, 当浏览商品时,淘宝根据你浏览的商品的特征去找到欧式距离小的特征,然后根据这些特征给你推荐其他商品)<br><img src="/img/mL_learning/2023-07-29-11-52-26.png" srcset="/img/loading.gif" lazyload></p>
-<p>协同过滤算法的局限<br>冷启动问题:初始时,用户数据非常少,不能很好的给用户推荐内容<br>需要关于用户和项目的辅助信息<br><img src="/img/mL_learning/2023-07-29-11-54-33.png" srcset="/img/loading.gif" lazyload></p>
-<p>协同过滤算法和基于内容的推荐算法对比</p>
-<ul>
-<li>协同过滤算法是根据与你相似的用户的信息给你进行推荐</li>
-<li>基于内容的过滤算法是将项目特征与用户特征进行匹配,寻找关系来进行推荐内容<br><img src="/img/mL_learning/2023-07-29-12-01-46.png" srcset="/img/loading.gif" lazyload></li>
-</ul>
-<p>基于内容的推荐算法</p>
-<ul>
-<li>根据用户特征$X_u$ 计算出向量$V_u$ 根据项目特征$X_m$ 计算出向量$V_m$<ul>
-<li>计算方式是神经网络<br><img src="/img/mL_learning/2023-07-29-12-20-45.png" srcset="/img/loading.gif" lazyload></li>
-<li>两神经网络整合在一起(使用平方损失函数来找到合适的输出层)<br><img src="/img/mL_learning/2023-07-29-12-24-26.png" srcset="/img/loading.gif" lazyload></li>
-</ul>
-</li>
-</ul>
-<p>基于内容的推荐算法来推荐类似的电影使用的方法类似协同过滤算法<br><img src="/img/mL_learning/2023-07-29-12-30-20.png" srcset="/img/loading.gif" lazyload></p>
-<p>特征降维</p>
-<ul>
-<li>PCA</li>
-</ul>
-<p>$J &#x3D; -\frac{1}{m}\sum_{i&#x3D;1}^{m}(y*loga +(1-y)*log(1-a) )$</p>
+                <p>RNN的出现<br>  传统的神经网络都是一个X对应一个Y,输入和输出一一对应,不同的输入之间没有关系.但是对于序列来说(文字序列,音频序列)一个个输入之间不是孤立的,而是有相对应关系的,因此引入RNN</p>
+<p>RNN的公式统一定义为$h_t &#x3D; f(x_t, h_{t-1}; \theta)$<br>其中$h_t$的每一步计算都是由其当前的输入$x_t$和上一步的输入$h_{t-1}$决定的,$\theta$则是训练时使用的参数.<br>因此$\theta$是参数,因此在传播过程中就需要训练它使其成为合适的参数(前向传播+反向传播)<br>$$<br>\frac{\partial h_t}{\partial \theta} &#x3D; \frac{\partial h_t}{\partial h_{t-1}} \cdot \frac{\partial h_{t-1}}{\partial \theta} + \frac{\partial h_t}{\partial \theta}<br>$$<br>由上式中我们可以看到$\frac{\partial h_t}{\partial \theta}$是前一个状态$\frac{\partial h_{t-1}}{\partial \theta}$对$\theta$和当前状态对$\theta$的函数.在上面的式子中$|\frac{\partial h_t}{\partial h_{t-1}}|&gt;1$ 则表示增强前面的梯度, $\frac{\partial h_t}{\partial h_{t-1}}|&lt;1$则表示减弱前面的梯度.模型很难做到在1附近摆动,从而保持梯度信息,因此梯度消失或者梯度下降在所难免.</p>
+<p><strong>对于梯度消失&#x2F;爆炸的理解</strong><br>在RNN中谈论梯度消失不是指总梯度&#x3D;0,而是对于前面的总项$\frac{\partial h_t}{\partial h_{t-1}} \cdot \frac{\partial h_{t-1}}{\partial \theta} \rarr o$ 这表示前面的梯度信息已经对当前梯度更新不起作用了, 在序列中表示前面的输入对后面输入的依赖关系已经消失了.</p>
+<p>辅助公式<br>$$<br>tanh(x) &#x3D; 2\sigma(2x)-1<br>$$<br>$$<br>\sigma(x) &#x3D; \frac{1}{2}(tanh(\frac{x}{2})+1)<br>$$<br>$$<br>(tanhx)’ &#x3D; 1-{tanh}^2x<br>$$<br>$$<br>\sigma ‘ &#x3D; \sigma(x)(1-\sigma(x))<br>$$</p>
+<p>原始RNN<br>$$<br>  h_t &#x3D; tanh(W_{x_t} + Uh_{t-1}+b)<br>$$<br>下面可以计算一下$ \frac{\partial h_t}{\partial h_{t-1}}$<br>$$<br> \frac{\partial h_t}{\partial h_{t-1}} &#x3D; (tanh(W_{x_t} + Uh_{t-1}+b))’\cdot U &#x3D; (1-{tanh}^2(W_{x_t} + Uh_{t-1}+b))*U &#x3D; (1-{h_t}^2)*U<br>$$<br>U的值是不确定的,因此$ \frac{\partial h_t}{\partial h_{t-1}}$的值可能大于1也可能小于1,因此是存在梯度消失&#x2F;爆炸的风险.因为激活函数使用tanh,因此当|U|非常大时,会将$h_t$限制在[-1,1]之间,使得$(1-{h_t}^2)*U$有界.<br>这也是使用tanh作为激活函数的原因,它能缓解梯度爆炸。如果我们使用relu激活函数时，当|U|非常大时，$h_t$也会非常大,$\frac{\partial h_t}{\partial h_{t-1}}$也很容易非常大,因此梯度爆炸风险非常高.而tanh激活函数可以将$h_t$限制在[-1,1]之间,大大降低了梯度爆炸的风险.</p>
+<p>对于LSTM:<br>$$<br>f_t &#x3D; \sigma(W_{fx_t} + U_{f}h_{t-1}+b_f)<br>$$<br>$$<br>  i_t &#x3D; \sigma(W_{ix_t}+U_ih_{i-1}+b_i)<br>$$<br>$$<br>  o_t &#x3D; \sigma(W_{ox_t}+U_ch_{t-1}+b_c)<br>$$<br>$$<br>  \hat{c}<em>t &#x3D; tanh(W</em>{ox_t} + U_oh_{t-1}+b_c)<br>$$</p>
+<p>$$<br>  c_t &#x3D; f_t \cdot c_{t-1} + i_t \cdot \hat{c}_t<br>$$<br>$$<br>  h_t &#x3D; o_t \cdot tanh(c_t)<br>$$</p>
+<p>GRU:<br>$$<br>  z_t&#x3D;\sigma(W_{zx_t}+U_zh_{t-1}+b_z)<br>$$<br>$$<br>  r_t &#x3D; \sigma(W_{rx_t}+U_rh_{t-1}+b_r)<br>$$<br>$$<br>  \hat{h}<em>t &#x3D; tanh(W</em>{hx_t}+U_h(r_t\cdot h_{t-1})+b_c)<br>$$<br>$$<br>  h_t &#x3D; (1-z_t)\cdot h_{t-1}+z_t \cdot \hat h_t<br>$$</p>
+<p><img src="/img/mL_learning/2023-08-29-21-34-52.png" srcset="/img/loading.gif" lazyload></p>
+<hr>
+<p><img src="/img/mL_learning/2023-08-29-22-01-17.png" srcset="/img/loading.gif" lazyload><br>W参数一样，激活函数中的参数不一样<br><img src="/img/mL_learning/2023-08-29-21-57-41.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/mL_learning/2023-08-29-22-08-13.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/mL_learning/2023-08-29-22-16-35.png" srcset="/img/loading.gif" lazyload><br>a按时间顺序（倒序）来更新</p>
+<p>梯度爆炸使用梯度修建的方式来缓解</p>
+<p><img src="/img/mL_learning/2023-08-29-22-26-56.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/mL_learning/2023-08-30-09-13-13.png" srcset="/img/loading.gif" lazyload><br>由上图可以看出来, 后面得到的概率全是在前面的影响下得出来的.</p>
+<p><img src="/img/mL_learning/2023-08-30-09-52-31.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/mL_learning/2023-08-31-16-22-23.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/mL_learning/2023-08-31-16-57-41.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/mL_learning/2023-08-31-17-41-18.png" srcset="/img/loading.gif" lazyload><br>还是没懂为什么使用余弦函数可以很好的预测词汇之间的关系</p>
+<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/tardis/zm/art/43396514?source_id=1003">https://www.zhihu.com/tardis/zm/art/43396514?source_id=1003</a></p>
+<p>对于ship-gram算法的实现过程不是很理解<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41843918/article/details/90312339">https://blog.csdn.net/weixin_41843918/article/details/90312339</a></p>
+<p>glove算法</p>
+<p><img src="/img/mL_learning/2023-09-01-12-28-37.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/mL_learning/2023-09-01-15-45-14.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/mL_learning/2023-09-01-16-24-09.png" srcset="/img/loading.gif" lazyload></p>
 
                 
               </div>
@@ -435,13 +366,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E5%86%B3%E7%AD%96%E6%A0%91/" class="print-no-link">#决策树</a>
+        <a href="/tags/RNN/" class="print-no-link">#RNN</a>
       
-        <a href="/tags/%E4%BF%A1%E6%81%AF%E7%86%B5/" class="print-no-link">#信息熵</a>
-      
-        <a href="/tags/%E4%BF%A1%E6%81%AF%E5%A2%9E%E7%9B%8A/" class="print-no-link">#信息增益</a>
-      
-        <a href="/tags/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/" class="print-no-link">#推荐系统</a>
+        <a href="/tags/NLP/" class="print-no-link">#NLP</a>
       
     </div>
   
@@ -453,8 +380,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>吴恩达机器学习week4</div>
-      <div>https://zxlisrich.github.io/zxlisrich.github.io/2023/07/23/吴恩达机器学习week/</div>
+      <div>吴恩达深度学习NLP入门</div>
+      <div>https://zxlisrich.github.io/zxlisrich.github.io/2023/07/23/NLP入门/</div>
     </div>
     <div class="license-meta">
       
@@ -498,9 +425,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/07/23/moon-and-earth/" title="月球绕地球旋转scss实现">
+                      <a href="/2023/07/23/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0week/" title="吴恩达机器学习week4">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">月球绕地球旋转scss实现</span>
+                        <span class="hidden-mobile">吴恩达机器学习week4</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -508,8 +435,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/07/23/NLP%E5%85%A5%E9%97%A8/" title="吴恩达深度学习NLP入门">
-                        <span class="hidden-mobile">吴恩达深度学习NLP入门</span>
+                      <a href="/2023/07/19/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/" title="测试文章">
+                        <span class="hidden-mobile">测试文章</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

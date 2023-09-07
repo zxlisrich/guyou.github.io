@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>矩阵求导运算</title>
+    <link href="/2023/09/07/%E7%9F%A9%E9%98%B5%E6%B1%82%E5%AF%BC/"/>
+    <url>/2023/09/07/%E7%9F%A9%E9%98%B5%E6%B1%82%E5%AF%BC/</url>
+    
+    <content type="html"><![CDATA[<p>###矩阵运算<br>遇见两次矩阵运算了，第一次在吴恩达那里就云里雾里的，现在决定好好搞懂它。</p><blockquote><h4 id="标量导数运算"><a href="#标量导数运算" class="headerlink" title="标量导数运算"></a>标量导数运算</h4><p>这个很简单,就是我们以前学过的导数计算,求的是斜率.</p><ul><li>$a’&#x3D;0$</li><li>$x’&#x3D;1$</li><li>$x^a&#x3D;ax^{a-1}$</li><li>…</li></ul></blockquote><blockquote><h4 id="向量导数运算"><a href="#向量导数运算" class="headerlink" title="向量导数运算"></a>向量导数运算</h4><p>当$x$为向量时,$f(\mathbf{x}) &#x3D; a_1x_1+a_2x_2+a_3x_3$<br>当$f$为向量时(此时x为标量),$ \mathbf{f}(x) &#x3D; [x+1, x^2, 2x+2]^T $,这里展示的是向量$\mathbf{f}$不同分量和$x$的关系<br>向量导数运算可以分为以下组合</p><table><thead><tr><th align="center">$x&#x2F;f(x)$</th><th align="center">标量</th><th align="left">向量</th></tr></thead><tbody><tr><td align="center">标量</td><td align="center">$f(x)$</td><td align="left">$\mathbf{f}(x)$</td></tr><tr><td align="center">向量</td><td align="center">$f(\mathbf{x})$</td><td align="left">$\mathbf{f}(\mathbf{x})$</td></tr><tr><td align="center">向量求导时就</td><td align="center"></td><td align="left"></td></tr><tr><td align="center">$$</td><td align="center"></td><td align="left"></td></tr><tr><td align="center">\mathbf{f}(\mathbf{x})&#x3D; \left[\begin{matrix} f_1(\mathbf{x})\f_2(\mathbf{x})\end{matrix}\right] &#x3D; \left[</td><td align="center"></td><td align="left"></td></tr><tr><td align="center">\begin{matrix}</td><td align="center"></td><td align="left"></td></tr><tr><td align="center">x_1+x_2\</td><td align="center"></td><td align="left"></td></tr><tr><td align="center">x_1x_2^2</td><td align="center"></td><td align="left"></td></tr><tr><td align="center">\end{matrix}</td><td align="center"></td><td align="left"></td></tr><tr><td align="center">\right]</td><td align="center"></td><td align="left"></td></tr><tr><td align="center">\tag{1}</td><td align="center"></td><td align="left"></td></tr><tr><td align="center">$$</td><td align="center"></td><td align="left"></td></tr><tr><td align="center">$$\frac{\partial \mathbf{f}}{\partial \mathbf{x}} &#x3D; \left[\begin{matrix} \frac{\partial f_1}{\partial x_1} &amp; \frac{\partial f_1}{\partial x_2}\ \frac{\partial f_2}{\partial x_1} &amp; \frac{\partial f_2}{\partial x_2}\end{matrix}\right] \tag{2}$$</td><td align="center"></td><td align="left"></td></tr></tbody></table><p>这里有两个问题没有需要解决</p><ul><li>导数的行列可以有不同的分法,这个的区别是什么</li><li>他们说向量求导就是找梯度,我现在暂时无法体会这是如何找到梯度的</li></ul></blockquote><blockquote><p>首先来解决第一个问题，导数的行列按不同的形式展开有什么区别.以(1)为例，它对$x$求导其实可以写成另一个形式<br>$$\frac{\partial \mathbf{f}}{\partial \mathbf{x}} &#x3D; \left[\begin{matrix} \frac{\partial f_1}{\partial x_1} &amp; \frac{\partial f_2}{\partial x_1}\ \frac{\partial f_1}{\partial x_2} &amp; \frac{\partial f_1}{\partial x_2}\end{matrix}\right] \tag{3}$$<br>(2)为分子布局(分子为列向量形式,分母为行向量形式),又称为行向量偏导形式<br>而(3)则是分母布局(分子为行向量,分母为列向量),成为列向量偏导形式<br>刚体会了一下反向传播,在次过程中,如果使用分母布局,则会导致导数矩阵的维度和原矩阵的维度不一致,无法进行梯度下降计算.使用分子布局则会使导数矩阵和原矩阵维度一致.这应该就是深度学习中通常使用分子布局的原因.</p></blockquote><blockquote><p>第二个问题,其实这个也挺好理解的,导数矩阵到底还是由各个导数分量组成的,在进行梯度下降的过程中是分量-对应位置的分量,这不就是往下降方向最大变化吗</p></blockquote><blockquote><h4 id="矩阵运算"><a href="#矩阵运算" class="headerlink" title="矩阵运算"></a>矩阵运算</h4><p>我个人是感觉矩阵运算和向量运算非常类似,区别就是分量多了点…</p></blockquote>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>矩阵运算</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title></title>
     <link href="/2023/08/24/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%8D%B7%E7%A7%AF/"/>
     <url>/2023/08/24/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%8D%B7%E7%A7%AF/</url>
@@ -99,6 +118,27 @@
       <tag>信息增益</tag>
       
       <tag>推荐系统</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>吴恩达深度学习NLP入门</title>
+    <link href="/2023/07/23/NLP%E5%85%A5%E9%97%A8/"/>
+    <url>/2023/07/23/NLP%E5%85%A5%E9%97%A8/</url>
+    
+    <content type="html"><![CDATA[<p>RNN的出现<br>  传统的神经网络都是一个X对应一个Y,输入和输出一一对应,不同的输入之间没有关系.但是对于序列来说(文字序列,音频序列)一个个输入之间不是孤立的,而是有相对应关系的,因此引入RNN</p><p>RNN的公式统一定义为$h_t &#x3D; f(x_t, h_{t-1}; \theta)$<br>其中$h_t$的每一步计算都是由其当前的输入$x_t$和上一步的输入$h_{t-1}$决定的,$\theta$则是训练时使用的参数.<br>因此$\theta$是参数,因此在传播过程中就需要训练它使其成为合适的参数(前向传播+反向传播)<br>$$<br>\frac{\partial h_t}{\partial \theta} &#x3D; \frac{\partial h_t}{\partial h_{t-1}} \cdot \frac{\partial h_{t-1}}{\partial \theta} + \frac{\partial h_t}{\partial \theta}<br>$$<br>由上式中我们可以看到$\frac{\partial h_t}{\partial \theta}$是前一个状态$\frac{\partial h_{t-1}}{\partial \theta}$对$\theta$和当前状态对$\theta$的函数.在上面的式子中$|\frac{\partial h_t}{\partial h_{t-1}}|&gt;1$ 则表示增强前面的梯度, $\frac{\partial h_t}{\partial h_{t-1}}|&lt;1$则表示减弱前面的梯度.模型很难做到在1附近摆动,从而保持梯度信息,因此梯度消失或者梯度下降在所难免.</p><p><strong>对于梯度消失&#x2F;爆炸的理解</strong><br>在RNN中谈论梯度消失不是指总梯度&#x3D;0,而是对于前面的总项$\frac{\partial h_t}{\partial h_{t-1}} \cdot \frac{\partial h_{t-1}}{\partial \theta} \rarr o$ 这表示前面的梯度信息已经对当前梯度更新不起作用了, 在序列中表示前面的输入对后面输入的依赖关系已经消失了.</p><p>辅助公式<br>$$<br>tanh(x) &#x3D; 2\sigma(2x)-1<br>$$<br>$$<br>\sigma(x) &#x3D; \frac{1}{2}(tanh(\frac{x}{2})+1)<br>$$<br>$$<br>(tanhx)’ &#x3D; 1-{tanh}^2x<br>$$<br>$$<br>\sigma ‘ &#x3D; \sigma(x)(1-\sigma(x))<br>$$</p><p>原始RNN<br>$$<br>  h_t &#x3D; tanh(W_{x_t} + Uh_{t-1}+b)<br>$$<br>下面可以计算一下$ \frac{\partial h_t}{\partial h_{t-1}}$<br>$$<br> \frac{\partial h_t}{\partial h_{t-1}} &#x3D; (tanh(W_{x_t} + Uh_{t-1}+b))’\cdot U &#x3D; (1-{tanh}^2(W_{x_t} + Uh_{t-1}+b))*U &#x3D; (1-{h_t}^2)*U<br>$$<br>U的值是不确定的,因此$ \frac{\partial h_t}{\partial h_{t-1}}$的值可能大于1也可能小于1,因此是存在梯度消失&#x2F;爆炸的风险.因为激活函数使用tanh,因此当|U|非常大时,会将$h_t$限制在[-1,1]之间,使得$(1-{h_t}^2)*U$有界.<br>这也是使用tanh作为激活函数的原因,它能缓解梯度爆炸。如果我们使用relu激活函数时，当|U|非常大时，$h_t$也会非常大,$\frac{\partial h_t}{\partial h_{t-1}}$也很容易非常大,因此梯度爆炸风险非常高.而tanh激活函数可以将$h_t$限制在[-1,1]之间,大大降低了梯度爆炸的风险.</p><p>对于LSTM:<br>$$<br>f_t &#x3D; \sigma(W_{fx_t} + U_{f}h_{t-1}+b_f)<br>$$<br>$$<br>  i_t &#x3D; \sigma(W_{ix_t}+U_ih_{i-1}+b_i)<br>$$<br>$$<br>  o_t &#x3D; \sigma(W_{ox_t}+U_ch_{t-1}+b_c)<br>$$<br>$$<br>  \hat{c}<em>t &#x3D; tanh(W</em>{ox_t} + U_oh_{t-1}+b_c)<br>$$</p><p>$$<br>  c_t &#x3D; f_t \cdot c_{t-1} + i_t \cdot \hat{c}_t<br>$$<br>$$<br>  h_t &#x3D; o_t \cdot tanh(c_t)<br>$$</p><p>GRU:<br>$$<br>  z_t&#x3D;\sigma(W_{zx_t}+U_zh_{t-1}+b_z)<br>$$<br>$$<br>  r_t &#x3D; \sigma(W_{rx_t}+U_rh_{t-1}+b_r)<br>$$<br>$$<br>  \hat{h}<em>t &#x3D; tanh(W</em>{hx_t}+U_h(r_t\cdot h_{t-1})+b_c)<br>$$<br>$$<br>  h_t &#x3D; (1-z_t)\cdot h_{t-1}+z_t \cdot \hat h_t<br>$$</p><p><img src="/img/mL_learning/2023-08-29-21-34-52.png"></p><hr><p><img src="/img/mL_learning/2023-08-29-22-01-17.png"><br>W参数一样，激活函数中的参数不一样<br><img src="/img/mL_learning/2023-08-29-21-57-41.png"></p><p><img src="/img/mL_learning/2023-08-29-22-08-13.png"></p><p><img src="/img/mL_learning/2023-08-29-22-16-35.png"><br>a按时间顺序（倒序）来更新</p><p>梯度爆炸使用梯度修建的方式来缓解</p><p><img src="/img/mL_learning/2023-08-29-22-26-56.png"></p><p><img src="/img/mL_learning/2023-08-30-09-13-13.png"><br>由上图可以看出来, 后面得到的概率全是在前面的影响下得出来的.</p><p><img src="/img/mL_learning/2023-08-30-09-52-31.png"></p><p><img src="/img/mL_learning/2023-08-31-16-22-23.png"></p><p><img src="/img/mL_learning/2023-08-31-16-57-41.png"></p><p><img src="/img/mL_learning/2023-08-31-17-41-18.png"><br>还是没懂为什么使用余弦函数可以很好的预测词汇之间的关系</p><p><a href="https://www.zhihu.com/tardis/zm/art/43396514?source_id=1003">https://www.zhihu.com/tardis/zm/art/43396514?source_id=1003</a></p><p>对于ship-gram算法的实现过程不是很理解<br><a href="https://blog.csdn.net/weixin_41843918/article/details/90312339">https://blog.csdn.net/weixin_41843918/article/details/90312339</a></p><p>glove算法</p><p><img src="/img/mL_learning/2023-09-01-12-28-37.png"></p><p><img src="/img/mL_learning/2023-09-01-15-45-14.png"></p><p><img src="/img/mL_learning/2023-09-01-16-24-09.png"></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>RNN</tag>
+      
+      <tag>NLP</tag>
       
     </tags>
     
