@@ -23,33 +23,33 @@
 <meta property="og:site_name" content="hi~ 仔细看看？">
 <meta property="og:description" content="LLaMA模型详解Transformer与LLaMA之间的结构差异Transformer是Encoder+Decoder结构的,LLaMA是Decoder-only结构,并且LLaMA整体的结构就是Transformer的Decoder的变种.decoder-block的差异:  二者都会对输入序列进行嵌入化处理,不过在Transformer的Decoder中会在嵌入化处理后加入绝对位置信息,而L">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://zxlisrich.github.io/2024-03-23-15-45-02.png">
-<meta property="og:image" content="https://zxlisrich.github.io/2024-03-23-16-15-40.png">
-<meta property="og:image" content="https://zxlisrich.github.io/2024-03-23-16-52-51.png">
-<meta property="og:image" content="https://zxlisrich.github.io/2024-03-24-11-09-02.png">
-<meta property="og:image" content="https://zxlisrich.github.io/2024-03-24-12-26-16.png">
-<meta property="og:image" content="https://zxlisrich.github.io/2024-03-24-15-43-17.png">
-<meta property="og:image" content="https://zxlisrich.github.io/2024-03-24-18-18-00.png">
-<meta property="og:image" content="https://zxlisrich.github.io/2024-03-24-21-33-50.png">
-<meta property="og:image" content="https://zxlisrich.github.io/2024-03-24-21-42-46.png">
-<meta property="og:image" content="https://zxlisrich.github.io/2024-03-24-22-23-40.png">
-<meta property="og:image" content="https://zxlisrich.github.io/2024-03-24-22-41-50.png">
-<meta property="og:image" content="https://zxlisrich.github.io/2024-03-24-22-42-42.png">
-<meta property="og:image" content="https://zxlisrich.github.io/2024-03-24-22-43-03.png">
-<meta property="og:image" content="https://zxlisrich.github.io/2024-03-24-22-43-37.png">
-<meta property="og:image" content="https://zxlisrich.github.io/2024-03-24-22-55-55.png">
-<meta property="og:image" content="https://zxlisrich.github.io/2024-03-24-23-03-12.png">
-<meta property="og:image" content="https://zxlisrich.github.io/2024-03-24-23-03-58.png">
-<meta property="og:image" content="https://zxlisrich.github.io/2024-03-24-23-04-46.png">
-<meta property="og:image" content="https://zxlisrich.github.io/2024-03-25-18-09-17.png">
-<meta property="og:image" content="https://zxlisrich.github.io/2024-03-24-23-13-48.png">
+<meta property="og:image" content="https://zxlisrich.github.io/img/LLaMA/2024-03-23-15-45-02.png">
+<meta property="og:image" content="https://zxlisrich.github.io/img/LLaMA/2024-03-23-16-15-40.png">
+<meta property="og:image" content="https://zxlisrich.github.io/img/LLaMA/2024-03-23-16-52-51.png">
+<meta property="og:image" content="https://zxlisrich.github.io/img/LLaMA/2024-03-24-11-09-02.png">
+<meta property="og:image" content="https://zxlisrich.github.io/img/LLaMA/2024-03-24-12-26-16.png">
+<meta property="og:image" content="https://zxlisrich.github.io/img/LLaMA/2024-03-24-15-43-17.png">
+<meta property="og:image" content="https://zxlisrich.github.io/img/LLaMA/2024-03-24-18-18-00.png">
+<meta property="og:image" content="https://zxlisrich.github.io/img/LLaMA/2024-03-24-21-33-50.png">
+<meta property="og:image" content="https://zxlisrich.github.io/img/LLaMA/2024-03-24-21-42-46.png">
+<meta property="og:image" content="https://zxlisrich.github.io/img/LLaMA/2024-03-24-22-23-40.png">
+<meta property="og:image" content="https://zxlisrich.github.io/img/LLaMA/2024-03-24-22-41-50.png">
+<meta property="og:image" content="https://zxlisrich.github.io/img/LLaMA/2024-03-24-22-42-42.png">
+<meta property="og:image" content="https://zxlisrich.github.io/img/LLaMA/2024-03-24-22-43-03.png">
+<meta property="og:image" content="https://zxlisrich.github.io/img/LLaMA/2024-03-24-22-43-37.png">
+<meta property="og:image" content="https://zxlisrich.github.io/img/LLaMA/2024-03-24-22-55-55.png">
+<meta property="og:image" content="https://zxlisrich.github.io/img/LLaMA/2024-03-24-23-03-12.png">
+<meta property="og:image" content="https://zxlisrich.github.io/img/LLaMA/2024-03-24-23-03-58.png">
+<meta property="og:image" content="https://zxlisrich.github.io/img/LLaMA/2024-03-24-23-04-46.png">
+<meta property="og:image" content="https://zxlisrich.github.io/img/LLaMA/2024-03-25-18-09-17.png">
+<meta property="og:image" content="https://zxlisrich.github.io/img/LLaMA/2024-03-24-23-13-48.png">
 <meta property="article:published_time" content="2024-03-28T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-04-06T04:05:50.377Z">
+<meta property="article:modified_time" content="2024-04-06T04:19:22.663Z">
 <meta property="article:author" content="顾友">
 <meta property="article:tag" content="LLMs">
 <meta property="article:tag" content="LLaMA">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://zxlisrich.github.io/2024-03-23-15-45-02.png">
+<meta name="twitter:image" content="https://zxlisrich.github.io/img/LLaMA/2024-03-23-15-45-02.png">
   
   
   
@@ -334,15 +334,15 @@
             
               <div class="markdown-body">
                 
-                <h3 id="LLaMA模型详解"><a href="#LLaMA模型详解" class="headerlink" title="LLaMA模型详解"></a>LLaMA模型详解</h3><h4 id="Transformer与LLaMA之间的结构差异"><a href="#Transformer与LLaMA之间的结构差异" class="headerlink" title="Transformer与LLaMA之间的结构差异"></a>Transformer与LLaMA之间的结构差异</h4><p>Transformer是Encoder+Decoder结构的,LLaMA是Decoder-only结构,并且LLaMA整体的结构就是Transformer的Decoder的变种.<br><img src="/2024-03-23-15-45-02.png" srcset="/img/loading.gif" lazyload><br>decoder-block的差异:</p>
+                <h3 id="LLaMA模型详解"><a href="#LLaMA模型详解" class="headerlink" title="LLaMA模型详解"></a>LLaMA模型详解</h3><h4 id="Transformer与LLaMA之间的结构差异"><a href="#Transformer与LLaMA之间的结构差异" class="headerlink" title="Transformer与LLaMA之间的结构差异"></a>Transformer与LLaMA之间的结构差异</h4><p>Transformer是Encoder+Decoder结构的,LLaMA是Decoder-only结构,并且LLaMA整体的结构就是Transformer的Decoder的变种.<br><img src="/img/LLaMA/2024-03-23-15-45-02.png" srcset="/img/loading.gif" lazyload><br>decoder-block的差异:</p>
 <ul>
 <li>二者都会对输入序列进行嵌入化处理,不过在Transformer的Decoder中会在嵌入化处理后加入绝对位置信息,而LLaMa的嵌入层之后是RMS层</li>
 <li>Transformer中都是在每一模块之后添加一个归一化层,而LLaMA中则是将归一化层放在每一个模块输入之前,并用RSM Norm代替Layer Norm </li>
 <li>Transformer中使用的是经典的MHA,LLaMA中使用的是GMA+KV Cache,并且将位置信息加入在Q K中</li>
 <li>在FFN中LLaMa用SwiGLU替换了原来的ReLU</li>
 </ul>
-<h4 id="Models-LLaMA1-LLaMA2"><a href="#Models-LLaMA1-LLaMA2" class="headerlink" title="Models (LLaMA1 LLaMA2)"></a>Models (LLaMA1 LLaMA2)</h4><p><img src="/2024-03-23-16-15-40.png" srcset="/img/loading.gif" lazyload></p>
-<h4 id="RMS"><a href="#RMS" class="headerlink" title="RMS"></a>RMS</h4><h5 id="为什么要归一化"><a href="#为什么要归一化" class="headerlink" title="为什么要归一化"></a>为什么要归一化</h5><p>举一个很明显的例子—-手机制作过程<br>从原材料-&gt;硬件(主板,电池等等)-&gt;软件(qq, vx等等)-&gt;输出,然后与target对比,计算loss反馈到硬件(主板调整一下,电池调整一下各个硬件都调整)然后来到软件它就完全不认识这些硬件了,它得重新认识这些硬件,然后重新生成一批参数,<strong>这会导致整个训练过程非常缓慢,因此归一化的出现可以让参数变化幅度在一个范围内,那下一层就不用花大力气去重新生成参数</strong><br><img src="/2024-03-23-16-52-51.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="Models-LLaMA1-LLaMA2"><a href="#Models-LLaMA1-LLaMA2" class="headerlink" title="Models (LLaMA1 LLaMA2)"></a>Models (LLaMA1 LLaMA2)</h4><p><img src="/img/LLaMA/2024-03-23-16-15-40.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="RMS"><a href="#RMS" class="headerlink" title="RMS"></a>RMS</h4><h5 id="为什么要归一化"><a href="#为什么要归一化" class="headerlink" title="为什么要归一化"></a>为什么要归一化</h5><p>举一个很明显的例子—-手机制作过程<br>从原材料-&gt;硬件(主板,电池等等)-&gt;软件(qq, vx等等)-&gt;输出,然后与target对比,计算loss反馈到硬件(主板调整一下,电池调整一下各个硬件都调整)然后来到软件它就完全不认识这些硬件了,它得重新认识这些硬件,然后重新生成一批参数,<strong>这会导致整个训练过程非常缓慢,因此归一化的出现可以让参数变化幅度在一个范围内,那下一层就不用花大力气去重新生成参数</strong><br><img src="/img/LLaMA/2024-03-23-16-52-51.png" srcset="/img/loading.gif" lazyload></p>
 <p><strong>专业化解释</strong></p>
 <ul>
 <li>神经元对于一个数据项的输出依赖于输入数据项的特征（以及神经元的参数）。</li>
@@ -359,12 +359,12 @@
 <li>Batch Norm很适合使用在图像领域,因为图像的输入是一个矩阵,使用pytorch对矩阵的一行或者一列进行处理是很方便的一件事情</li>
 <li>在NLP领域中,样本就是一段文本,每一个词汇就是一个样本,因此使用Batch Norm没有啥意义,所以使用Layer Norm来对整个样本归一化</li>
 </ul>
-<p><strong>Layer Norm如何进行归一化</strong><br>使用的是如下公示<br><img src="/2024-03-24-11-09-02.png" srcset="/img/loading.gif" lazyload><br>统计学中有个定理是如果$x$的平均数为$\mu$,方差为${\sigma}^2$  也就是 $x\sim U(\mu, {\sigma}^2)$ 可以通过$$ \frac{x-\mu}{\sqrt{\sigma} } &#x3D; z\sim U(0,1) $$将$x$变为0-1正态分布.</p>
+<p><strong>Layer Norm如何进行归一化</strong><br>使用的是如下公示<br><img src="/img/LLaMA/2024-03-24-11-09-02.png" srcset="/img/loading.gif" lazyload><br>统计学中有个定理是如果$x$的平均数为$\mu$,方差为${\sigma}^2$  也就是 $x\sim U(\mu, {\sigma}^2)$ 可以通过$$ \frac{x-\mu}{\sqrt{\sigma} } &#x3D; z\sim U(0,1) $$将$x$变为0-1正态分布.</p>
 <ul>
 <li>$\gamma$是重新放缩因子,它控制着归一化后的数据的新尺度,如果$\gamma &gt; 1$ 数据的变化范围会增加, $\gamma &lt; 1$ 则变化范围会减少</li>
 <li>$\beta$是重新平移因子,它允许模型在必要时将数据的平均值偏移</li>
 </ul>
-<h5 id="RMS-Root-Mean-Square-Normalization-均方根"><a href="#RMS-Root-Mean-Square-Normalization-均方根" class="headerlink" title="RMS(Root Mean Square Normalization 均方根)"></a>RMS(Root Mean Square Normalization 均方根)</h5><p>上文提到,LayerNorm成功的原因是其re-centering和re-scaling的不变性属性.前者使模型对输入和权重的移位噪声不敏感,后者在输入和权重随机缩放时保持输出表示不变.在RMS中则是认为LayerNorm成功的原因是re-scaling,与re-centering无关<br>因此在RMSNorm中<br><img src="/2024-03-24-12-26-16.png" srcset="/img/loading.gif" lazyload><br>使用RMSNorm的好处</p>
+<h5 id="RMS-Root-Mean-Square-Normalization-均方根"><a href="#RMS-Root-Mean-Square-Normalization-均方根" class="headerlink" title="RMS(Root Mean Square Normalization 均方根)"></a>RMS(Root Mean Square Normalization 均方根)</h5><p>上文提到,LayerNorm成功的原因是其re-centering和re-scaling的不变性属性.前者使模型对输入和权重的移位噪声不敏感,后者在输入和权重随机缩放时保持输出表示不变.在RMS中则是认为LayerNorm成功的原因是re-scaling,与re-centering无关<br>因此在RMSNorm中<br><img src="/img/LLaMA/2024-03-24-12-26-16.png" srcset="/img/loading.gif" lazyload><br>使用RMSNorm的好处</p>
 <ul>
 <li>与LayerNorm相比 RMSNorm需要较少的计算量,因为方差$\sigma &#x3D; \sqrt{\frac{1}{n}\sum_{i&#x3D;1}^{n}(a_i-\mu)^2}$ </li>
 <li>RMSNorm在图像领域也能很好地应用</li>
@@ -372,22 +372,22 @@
 <h4 id="RoPE"><a href="#RoPE" class="headerlink" title="RoPE"></a>RoPE</h4><p><strong>positional encoding</strong></p>
 <ul>
 <li>绝对位置编码(absolute positional encoding):绝对位置编码是固定的向量,它们被添加到一个token的embedding中用以表示该token在句子中的位置</li>
-<li>相对位置编码(relative positional encoding):相对位置编码一次处理两个token,我们在计算注意力时使用到相对位置编码:因为注意力机制捕捉两个token之间的强度关系,而相对位置编码可以告诉注意力机制这两token之间的关系.<br>下面这张图表示在使用绝对位置编码或相对位置编码时attention的计算公式.<br>绝对位置编码在生成token的embedding时就已经加入到embedding中了,而相对位置编码则是存在一个相对位置信息的向量,将其与K相加再来求attention<br><img src="/2024-03-24-15-43-17.png" srcset="/img/loading.gif" lazyload></li>
+<li>相对位置编码(relative positional encoding):相对位置编码一次处理两个token,我们在计算注意力时使用到相对位置编码:因为注意力机制捕捉两个token之间的强度关系,而相对位置编码可以告诉注意力机制这两token之间的关系.<br>下面这张图表示在使用绝对位置编码或相对位置编码时attention的计算公式.<br>绝对位置编码在生成token的embedding时就已经加入到embedding中了,而相对位置编码则是存在一个相对位置信息的向量,将其与K相加再来求attention<br><img src="/img/LLaMA/2024-03-24-15-43-17.png" srcset="/img/loading.gif" lazyload></li>
 </ul>
 <p><strong>RoPE(Rotary Position Embedding旋转位置编码)</strong><br>旋转位置编码实际上是一种通过绝对位置编码的方式实现相对位置编码的方法.RoPE的作者实际上是假设$Q$与$K$之间的内积可以被一个函数$g$表示,而函数$g$的输入为词嵌入$x_m$,$x_n$和相对位置信息$m-n$:<br>$$&lt;f_q(x_m,m), f_k(x_n, n)&gt; &#x3D; g(x_m, x_n, m-n)$$<br>作者提出了满足上述关系的$f$和$g$的形式:<br>$$<br>    f_q(x_m,m) &#x3D; (W_qx_m)e^{im\theta} \tag{1}<br>$$</p>
 <p>$$<br>    f_k(x_n, n) &#x3D; (W_kx_n)e^{in\theta} \tag{2}<br>$$</p>
 <p>$$<br>    g(x_m, x_n, m-n) &#x3D; Re[(W_qx_m)(W_kx_n)e^{i(m-n)\theta}] \tag{3}<br>$$<br>由<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/642884818">一文看懂 LLaMA 中的旋转式位置编码（Rotary Position Embedding）</a>可得<br>$$<br>    f_q(x_m, m) &#x3D; (W_qx_m)e^{im\theta} &#x3D; q_me^{im\theta} &#x3D; \begin{pmatrix}<br>cos(m\theta) &amp; -sin(m\theta)\<br>sin(m\theta) &amp; cos(m\theta)\<br>\end{pmatrix} \begin{pmatrix}<br>    q^{(1)}_m \ q^{(2)}_m<br>\end{pmatrix}<br>$$<br>$f_k(x_n, n)$可得相似等式.</p>
-<p>也就是说在$q$ 和 $k$中都含有相应的位置信息,即$q$ 或者$k$乘以一个旋转矩阵(这也是旋转矩阵名字的由来)<br>现在由旋转矩阵的性质:${R\alpha}^T &#x3D; R(-\alpha)$ $R\alpha \cdot R\beta &#x3D; R(\alpha + \beta)$得<br>$$<br>\begin{aligned}<br>&lt;R\alpha X, R\beta Y&gt; &amp;&#x3D; (R\alpha X)^T \cdot R\beta Y \<br>&amp;&#x3D;X^T \cdot (R\alpha)^T \cdot R\beta Y \<br>&amp;&#x3D;X^T \cdot R(-\alpha)R\beta Y \<br>&amp;&#x3D;X^T \cdot R(\alpha - \beta)Y \<br>&amp;&#x3D;&lt;X,  R(\alpha - \beta)Y&gt;<br>\end{aligned}<br>$$<br>上式中$X&#x3D;q, Y&#x3D;k, \alpha&#x3D;m\theta, \beta&#x3D;n\theta$,完美体现了<strong>通过绝对位置编码的方式实现相对位置编码</strong><br>作者计算了通过改变两个token之间的距离得到的内积的上限，并证明它随着相对距离的增长而衰减。<br>这意味着，当两个token之间的距离增大时，用RoPE的两个token之间的“关系强度”在数值上会变小。这表明旋转位置编码是完全有效的。<br><img src="/2024-03-24-18-18-00.png" srcset="/img/loading.gif" lazyload></p>
-<h4 id="KV-Cache"><a href="#KV-Cache" class="headerlink" title="KV-Cache"></a>KV-Cache</h4><h5 id="Self-Attention"><a href="#Self-Attention" class="headerlink" title="Self-Attention"></a>Self-Attention</h5><p>自注意力可以让模型知道每个词之间的相关性<br>$Attention(Q,K,V) &#x3D; softmax(\frac{QK^T}{\sqrt{d_k}})V$<br><img src="/2024-03-24-21-33-50.png" srcset="/img/loading.gif" lazyload><br>上图中得到的$Attention$矩阵表示的是各个词之间的相近程度</p>
-<h5 id="Multi-Head-Attention"><a href="#Multi-Head-Attention" class="headerlink" title="Multi-Head Attention"></a>Multi-Head Attention</h5><p>$MultiHead(Q,K,V) &#x3D; Concat(head1, …head_h)W^o$<br><img src="/2024-03-24-21-42-46.png" srcset="/img/loading.gif" lazyload></p>
-<h5 id="Next-Token-Prediction-Task"><a href="#Next-Token-Prediction-Task" class="headerlink" title="Next Token Prediction Task"></a>Next Token Prediction Task</h5><p>Next Token Prediction Task是很多大语言模型中使用的方法即给定前t个词,让模型预测第t+1处的词,每一次的输出都会与输入拼接起来,作为下一个词的输入.这导致输入序列越来越长.所以我们引入KV Cache来解决这个问题<br><img src="/2024-03-24-22-23-40.png" srcset="/img/loading.gif" lazyload><br>按照上图的流程得到词与词之间相关性的分数$Attention$矩阵,将$Attention$传入Linear+SoftMax层得到预测的token<br>下面是自注意力机制生成token计算$Attention$的过程<br><strong>计算Attention1</strong><br><img src="/2024-03-24-22-41-50.png" srcset="/img/loading.gif" lazyload></p>
-<p><strong>计算Attention2</strong><br><img src="/2024-03-24-22-42-42.png" srcset="/img/loading.gif" lazyload></p>
-<p><strong>计算Attention3</strong><br><img src="/2024-03-24-22-43-03.png" srcset="/img/loading.gif" lazyload></p>
-<p><strong>计算Attention4</strong><br><img src="/2024-03-24-22-43-37.png" srcset="/img/loading.gif" lazyload></p>
+<p>也就是说在$q$ 和 $k$中都含有相应的位置信息,即$q$ 或者$k$乘以一个旋转矩阵(这也是旋转矩阵名字的由来)<br>现在由旋转矩阵的性质:${R\alpha}^T &#x3D; R(-\alpha)$ $R\alpha \cdot R\beta &#x3D; R(\alpha + \beta)$得<br>$$<br>\begin{aligned}<br>&lt;R\alpha X, R\beta Y&gt; &amp;&#x3D; (R\alpha X)^T \cdot R\beta Y \<br>&amp;&#x3D;X^T \cdot (R\alpha)^T \cdot R\beta Y \<br>&amp;&#x3D;X^T \cdot R(-\alpha)R\beta Y \<br>&amp;&#x3D;X^T \cdot R(\alpha - \beta)Y \<br>&amp;&#x3D;&lt;X,  R(\alpha - \beta)Y&gt;<br>\end{aligned}<br>$$<br>上式中$X&#x3D;q, Y&#x3D;k, \alpha&#x3D;m\theta, \beta&#x3D;n\theta$,完美体现了<strong>通过绝对位置编码的方式实现相对位置编码</strong><br>作者计算了通过改变两个token之间的距离得到的内积的上限，并证明它随着相对距离的增长而衰减。<br>这意味着，当两个token之间的距离增大时，用RoPE的两个token之间的“关系强度”在数值上会变小。这表明旋转位置编码是完全有效的。<br><img src="/img/LLaMA/2024-03-24-18-18-00.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="KV-Cache"><a href="#KV-Cache" class="headerlink" title="KV-Cache"></a>KV-Cache</h4><h5 id="Self-Attention"><a href="#Self-Attention" class="headerlink" title="Self-Attention"></a>Self-Attention</h5><p>自注意力可以让模型知道每个词之间的相关性<br>$Attention(Q,K,V) &#x3D; softmax(\frac{QK^T}{\sqrt{d_k}})V$<br><img src="/img/LLaMA/2024-03-24-21-33-50.png" srcset="/img/loading.gif" lazyload><br>上图中得到的$Attention$矩阵表示的是各个词之间的相近程度</p>
+<h5 id="Multi-Head-Attention"><a href="#Multi-Head-Attention" class="headerlink" title="Multi-Head Attention"></a>Multi-Head Attention</h5><p>$MultiHead(Q,K,V) &#x3D; Concat(head1, …head_h)W^o$<br><img src="/img/LLaMA/2024-03-24-21-42-46.png" srcset="/img/loading.gif" lazyload></p>
+<h5 id="Next-Token-Prediction-Task"><a href="#Next-Token-Prediction-Task" class="headerlink" title="Next Token Prediction Task"></a>Next Token Prediction Task</h5><p>Next Token Prediction Task是很多大语言模型中使用的方法即给定前t个词,让模型预测第t+1处的词,每一次的输出都会与输入拼接起来,作为下一个词的输入.这导致输入序列越来越长.所以我们引入KV Cache来解决这个问题<br><img src="/img/LLaMA/2024-03-24-22-23-40.png" srcset="/img/loading.gif" lazyload><br>按照上图的流程得到词与词之间相关性的分数$Attention$矩阵,将$Attention$传入Linear+SoftMax层得到预测的token<br>下面是自注意力机制生成token计算$Attention$的过程<br><strong>计算Attention1</strong><br><img src="/img/LLaMA/2024-03-24-22-41-50.png" srcset="/img/loading.gif" lazyload></p>
+<p><strong>计算Attention2</strong><br><img src="/img/LLaMA/2024-03-24-22-42-42.png" srcset="/img/loading.gif" lazyload></p>
+<p><strong>计算Attention3</strong><br><img src="/img/LLaMA/2024-03-24-22-43-03.png" srcset="/img/loading.gif" lazyload></p>
+<p><strong>计算Attention4</strong><br><img src="/img/LLaMA/2024-03-24-22-43-37.png" srcset="/img/loading.gif" lazyload></p>
 <p>实际上我们每次生成token都是关心最新的$Attention$ 前面的$Attention$都已经在生成相应的token时已经计算过了,这部分在每次生成新的token时都会重复计算,如果能把这部分缓存起来,则可以省下很大一部分计算.</p>
-<p>下面是使用KV Cache技术的Self-Attention<br><strong>计算Attention1</strong><br>此时没有任何输入,所以将token1放进来就好<br><img src="/2024-03-24-22-55-55.png" srcset="/img/loading.gif" lazyload></p>
-<p><strong>计算Attention2</strong><br>在计算$Attention2$时 $Q$与之前相比发生了改变,它只使用最新得到的token,而$K,V$则需要保留前面的token参与运算(这也是叫KV Cache这个名字的原因吧)<br><img src="/2024-03-24-23-03-12.png" srcset="/img/loading.gif" lazyload><br><strong>计算Attention3</strong><br><img src="/2024-03-24-23-03-58.png" srcset="/img/loading.gif" lazyload><br><strong>计算Attention4</strong><br><img src="/2024-03-24-23-04-46.png" srcset="/img/loading.gif" lazyload></p>
-<h4 id="GQA"><a href="#GQA" class="headerlink" title="GQA"></a>GQA</h4><h5 id="MHA-Multi-Head-Attention"><a href="#MHA-Multi-Head-Attention" class="headerlink" title="MHA(Multi-Head Attention)"></a>MHA(Multi-Head Attention)</h5><p>在transformer中的Encoder和Decoder模块都使用了Multi-Head Attention，它本质上还是Self-Attention。只是Transformer的作者考虑到单个Self-Attention可学习的参数较少，泛化性较弱，因此他考虑将$Q, K, V$投影到低维,投影h次(头的个数),然后计算相应的$Attention$,最后将$Attention$concat起来然后再投影回去得到最终的输出.<br><img src="/2024-03-25-18-09-17.png" srcset="/img/loading.gif" lazyload><br>简单来说计算公式如下:<br>$$<br>    MultiHead(Q, K, V) &#x3D; Concat(head_1, …head_h)W^o<br>$$<br>特点:</p>
+<p>下面是使用KV Cache技术的Self-Attention<br><strong>计算Attention1</strong><br>此时没有任何输入,所以将token1放进来就好<br><img src="/img/LLaMA/2024-03-24-22-55-55.png" srcset="/img/loading.gif" lazyload></p>
+<p><strong>计算Attention2</strong><br>在计算$Attention2$时 $Q$与之前相比发生了改变,它只使用最新得到的token,而$K,V$则需要保留前面的token参与运算(这也是叫KV Cache这个名字的原因吧)<br><img src="/img/LLaMA/2024-03-24-23-03-12.png" srcset="/img/loading.gif" lazyload><br><strong>计算Attention3</strong><br><img src="/img/LLaMA/2024-03-24-23-03-58.png" srcset="/img/loading.gif" lazyload><br><strong>计算Attention4</strong><br><img src="/img/LLaMA/2024-03-24-23-04-46.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="GQA"><a href="#GQA" class="headerlink" title="GQA"></a>GQA</h4><h5 id="MHA-Multi-Head-Attention"><a href="#MHA-Multi-Head-Attention" class="headerlink" title="MHA(Multi-Head Attention)"></a>MHA(Multi-Head Attention)</h5><p>在transformer中的Encoder和Decoder模块都使用了Multi-Head Attention，它本质上还是Self-Attention。只是Transformer的作者考虑到单个Self-Attention可学习的参数较少，泛化性较弱，因此他考虑将$Q, K, V$投影到低维,投影h次(头的个数),然后计算相应的$Attention$,最后将$Attention$concat起来然后再投影回去得到最终的输出.<br><img src="/img/LLaMA/2024-03-25-18-09-17.png" srcset="/img/loading.gif" lazyload><br>简单来说计算公式如下:<br>$$<br>    MultiHead(Q, K, V) &#x3D; Concat(head_1, …head_h)W^o<br>$$<br>特点:</p>
 <ul>
 <li>MHA 使用多个“头”同时处理输入的不同方面，就像多任务侦探一样。</li>
 <li>可以把它想象成阅读一份有多个标题的报纸——MHA 捕捉到了文本的各种细微差别。</li>
@@ -399,7 +399,7 @@
 <li>可以将其视为将团队划分为较小的单位来处理特定任务，但同时进行整体协作。  </li>
 <li>GQA 提供比 MHA 更快的处理速度，同时通过群体内的集中注意力保留一些细节。</li>
 </ul>
-<p>(让我想起操作系统的线程)<br><img src="/2024-03-24-23-13-48.png" srcset="/img/loading.gif" lazyload></p>
+<p>(让我想起操作系统的线程)<br><img src="/img/LLaMA/2024-03-24-23-13-48.png" srcset="/img/loading.gif" lazyload></p>
 <p>[1] <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Mn_9W1nCFLo">LLaMA explained: KV-Cache, Rotary Positional Embedding, RMS Norm, Grouped Query Attention, SwiGLU</a><br>[2] <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1pu411o7BE/?spm_id_from=333.999.0.0">Transformer论文逐段精读【论文精读】</a><br>[3] <a target="_blank" rel="noopener" href="https://spaces.ac.cn/archives/8265/comment-page-1">Transformer升级之路：2、博采众长的旋转式位置编码</a><br>[4] <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/642884818">一文看懂 LLaMA 中的旋转式位置编码（Rotary Position Embedding）</a><br>[5] <a target="_blank" rel="noopener" href="https://iamshobhitagarwal.medium.com/navigating-the-attention-landscape-mha-mqa-and-gqa-decoded-288217d0a7d1">Navigating the Attention Landscape: MHA, MQA, and GQA Decoded</a></p>
 
                 
